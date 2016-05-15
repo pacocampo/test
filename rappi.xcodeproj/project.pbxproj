@@ -19,6 +19,7 @@
 		551D8D8E1C7AD14F0026D2D1 /* iPhoneMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D8D8D1C7AD14F0026D2D1 /* iPhoneMenuViewController.swift */; };
 		551D8D901C7AD1640026D2D1 /* iPadMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551D8D8F1C7AD1640026D2D1 /* iPadMenuViewController.swift */; };
 		553CAE2E1C7A374000D0B99D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553CAE2D1C7A374000D0B99D /* DetailViewController.swift */; };
+		556C4CBB1CE8DA09000C3765 /* CustomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556C4CBA1CE8DA09000C3765 /* CustomSegue.swift */; };
 		55F011961C78ED4E00C0F332 /* AppsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F011951C78ED4E00C0F332 /* AppsModel.swift */; };
 		55F011981C7923E700C0F332 /* AppsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F011971C7923E700C0F332 /* AppsViewController.swift */; };
 		55F0119A1C7A0C2A00C0F332 /* AppsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F011991C7A0C2A00C0F332 /* AppsCollectionViewCell.swift */; };
@@ -42,6 +43,7 @@
 		551D8D8D1C7AD14F0026D2D1 /* iPhoneMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPhoneMenuViewController.swift; sourceTree = "<group>"; };
 		551D8D8F1C7AD1640026D2D1 /* iPadMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadMenuViewController.swift; sourceTree = "<group>"; };
 		553CAE2D1C7A374000D0B99D /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		556C4CBA1CE8DA09000C3765 /* CustomSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomSegue.swift; path = ../Controllers/Apps/CustomSegue.swift; sourceTree = "<group>"; };
 		55F011951C78ED4E00C0F332 /* AppsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppsModel.swift; sourceTree = "<group>"; };
 		55F011971C7923E700C0F332 /* AppsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppsViewController.swift; sourceTree = "<group>"; };
 		55F011991C7A0C2A00C0F332 /* AppsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -82,28 +84,30 @@
 			isa = PBXGroup;
 			children = (
 				551B644C1C74BB2800891C48 /* Controllers */,
-				551B64531C74C5F500891C48 /* Interface */,
 				551B644D1C74BB3400891C48 /* Models */,
-				551B644E1C74BB4D00891C48 /* Swift */,
-				551B644A1C74BB0300891C48 /* Tools */,
+				551B644E1C74BB4D00891C48 /* Settings */,
+				551B644A1C74BB0300891C48 /* Data */,
 				551B644B1C74BB1100891C48 /* View */,
 				551B643F1C74A4D400891C48 /* Assets.xcassets */,
 			);
 			path = rappi;
 			sourceTree = "<group>";
 		};
-		551B644A1C74BB0300891C48 /* Tools */ = {
+		551B644A1C74BB0300891C48 /* Data */ = {
 			isa = PBXGroup;
 			children = (
 				551B644F1C74BDEE00891C48 /* ApiBridge.swift */,
 				551B64511C74C33D00891C48 /* EndPointCatalogue.swift */,
 			);
+			name = Data;
 			path = Tools;
 			sourceTree = "<group>";
 		};
 		551B644B1C74BB1100891C48 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				556C4CBA1CE8DA09000C3765 /* CustomSegue.swift */,
+				551B64531C74C5F500891C48 /* Interface */,
 				551B64411C74A4D400891C48 /* LaunchScreen.storyboard */,
 				551B64391C74A4D400891C48 /* Main.storyboard */,
 			);
@@ -128,13 +132,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		551B644E1C74BB4D00891C48 /* Swift */ = {
+		551B644E1C74BB4D00891C48 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
 				551B64351C74A4D400891C48 /* AppDelegate.swift */,
 				551B64441C74A4D400891C48 /* Info.plist */,
 				551B643C1C74A4D400891C48 /* rappi.xcdatamodeld */,
 			);
+			name = Settings;
 			path = Swift;
 			sourceTree = "<group>";
 		};
@@ -143,7 +148,8 @@
 			children = (
 				551B64541C74C60C00891C48 /* CustomControls.swift */,
 			);
-			path = Interface;
+			name = Interface;
+			path = ../Interface;
 			sourceTree = "<group>";
 		};
 		551D8D911C7AEBF90026D2D1 /* Menu */ = {
@@ -316,6 +322,7 @@
 				551D8D901C7AD1640026D2D1 /* iPadMenuViewController.swift in Sources */,
 				551B64521C74C33D00891C48 /* EndPointCatalogue.swift in Sources */,
 				55F0119A1C7A0C2A00C0F332 /* AppsCollectionViewCell.swift in Sources */,
+				556C4CBB1CE8DA09000C3765 /* CustomSegue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

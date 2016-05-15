@@ -12,6 +12,11 @@ class iPadMenuViewController: UIViewController, UICollectionViewDataSource, UICo
   @IBOutlet weak var collectionView: UICollectionView!
     let categories : [String] = ["Games", "Photo & Video", "Social Networking", "Chat", "Entertainment", "Music", "Education", "Travel", "Navigation"]
 
+  //Action
+  @IBAction func returnFromSegueActions(sender: UIStoryboardSegue){
+    
+  }
+  
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -36,6 +41,18 @@ class iPadMenuViewController: UIViewController, UICollectionViewDataSource, UICo
     let cell    = collectionView.indexPathForCell(sender as! UICollectionViewCell)
     let vc      = segue.destinationViewController as! AppsViewController
     vc.category = categories[(cell?.row)!]
+  }
+  
+  override func segueForUnwindingToViewController(toViewController: UIViewController, fromViewController: UIViewController, identifier: String?) -> UIStoryboardSegue? {
+    if let id = identifier {
+      if id == "returnMenuSegue" {
+        let undwindSegue = ReturnMenueSegue(identifier: id, source: fromViewController, destination: toViewController, performHandler: {
+          () -> Void in
+        })
+        return undwindSegue
+      }
+    }
+    return super.segueForUnwindingToViewController(toViewController, fromViewController: fromViewController, identifier: identifier)
   }
 
 }

@@ -11,6 +11,11 @@ import UIKit
 class iPhoneMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   //Outlets
   @IBOutlet weak var tableview: UITableView!
+  
+  //Action
+  @IBAction func returnFromSegueActions(sender: UIStoryboardSegue){
+    
+  }
 
   //Attributes
   let categories : [String] = ["Games", "Photo & Video", "Social Networking", "Chat", "Entertainment", "Music", "Education", "Travel", "Navigation"]
@@ -38,16 +43,22 @@ class iPhoneMenuViewController: UIViewController, UITableViewDelegate, UITableVi
     return 50
   }
   
-//  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//    let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Apps") as! AppsViewController
-//    vc.category = categories[indexPath.row]
-//  }
-//  //MARK: Navitation
+//  //MARK: Navigation
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     let cell    = tableview.indexPathForSelectedRow!
     let vc      = segue.destinationViewController as! AppsViewController
     vc.category = categories[cell.row]
   }
   
-
+  override func segueForUnwindingToViewController(toViewController: UIViewController, fromViewController: UIViewController, identifier: String?) -> UIStoryboardSegue? {
+    if let id = identifier {
+      if id == "returnMenuSegue" {
+        let undwindSegue = ReturnMenueSegue(identifier: id, source: fromViewController, destination: toViewController, performHandler: { 
+          () -> Void in
+        })
+        return undwindSegue
+      }
+    }
+    return super.segueForUnwindingToViewController(toViewController, fromViewController: fromViewController, identifier: identifier)
+  }
 }

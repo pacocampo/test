@@ -27,7 +27,11 @@ class DetailViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     getApp()
-
+    
+    //Add gesture
+    let gestureToBack = UISwipeGestureRecognizer(target: self, action: #selector(DetailViewController.backToCategories))
+    gestureToBack.direction = .Down
+    self.view.addGestureRecognizer(gestureToBack)
   }
   
   override func viewDidLayoutSubviews() {
@@ -52,11 +56,17 @@ class DetailViewController: UIViewController {
       for item in recommended {
         let recommendedImage : CustomImage = CustomImage(frame: CGRectMake(xView, 0, 80, appRecommendedView.frame.height))
         recommendedImage.image = UIImage(data: item.image!)
+        recommendedImage.contentMode = .ScaleAspectFit
         self.appRecommendedView.addSubview(recommendedImage)
         scrollWidth += recommendedImage.frame.size.width + 5
         xView += recommendedImage.frame.size.width + 5
       }
     }
+  }
+  
+  //Navigation
+  func backToCategories() {
+    self.performSegueWithIdentifier("returnCategoriesSegue", sender: self)
   }
 
 }

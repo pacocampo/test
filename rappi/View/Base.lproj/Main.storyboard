@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4Ry-kH-4ds">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4Ry-kH-4ds">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -77,7 +77,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="xT4-vd-mzv" kind="show" id="O3Q-kE-B3s"/>
+                                            <segue destination="xT4-vd-mzv" kind="custom" identifier="iphoneAppsSegue" customClass="CategoriesAppSegue" customModule="rappi" customModuleProvider="target" id="wHg-kq-zwo"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -136,7 +136,7 @@
                                         </view>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="xT4-vd-mzv" kind="show" id="QkA-ja-UTJ"/>
+                                            <segue destination="xT4-vd-mzv" kind="custom" identifier="iphoneAppsSegue" customClass="CategoriesAppSegue" customModule="rappi" customModuleProvider="target" id="3Mg-DJ-szO"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -185,7 +185,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="ext-ao-M5R" customClass="AppsCollectionViewCell" customModule="rappi" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="74" width="120" height="120"/>
+                                        <rect key="frame" x="10" y="10" width="120" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
@@ -218,7 +218,7 @@
                                         <connections>
                                             <outlet property="itemImage" destination="IvD-N7-ahZ" id="9ot-Gx-xbx"/>
                                             <outlet property="itemLabel" destination="XSg-ym-jAO" id="Fqu-Jv-O35"/>
-                                            <segue destination="PDz-eK-DUK" kind="show" id="YGd-rA-NzI"/>
+                                            <segue destination="PDz-eK-DUK" kind="custom" identifier="detailSegue" customClass="DetailCustomSegue" customModule="rappi" customModuleProvider="target" id="TxG-gf-2dH"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -239,9 +239,11 @@
                     <navigationItem key="navigationItem" id="pZc-TQ-tNN"/>
                     <connections>
                         <outlet property="collectionView" destination="fh0-LJ-nHw" id="7uV-IX-O2c"/>
+                        <segue destination="Bx7-Q7-cap" kind="unwind" identifier="returnMenuSegue" unwindAction="returnFromSegueActions:" id="n0i-x9-sL4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w7V-oE-o8W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Bx7-Q7-cap" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2212" y="1156"/>
         </scene>
@@ -264,14 +266,14 @@
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="izX-sl-qZu">
-                                <rect key="frame" x="20" y="170" width="560" height="304"/>
+                                <rect key="frame" x="20" y="170" width="560" height="271"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLX-cM-QTl">
-                                <rect key="frame" x="20" y="508" width="560" height="84"/>
+                                <rect key="frame" x="20" y="475" width="560" height="105"/>
                             </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RvS-MF-Byx">
                                 <rect key="frame" x="148" y="72" width="432" height="20.5"/>
@@ -292,7 +294,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Te podría interesar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="THn-v2-dhj">
-                                <rect key="frame" x="20" y="482" width="560" height="18"/>
+                                <rect key="frame" x="20" y="449" width="560" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -300,7 +302,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="hzX-Gp-OMf" firstAttribute="top" secondItem="kbS-sk-eBI" secondAttribute="bottom" constant="8" id="05h-g0-f6M"/>
+                            <constraint firstItem="hzX-Gp-OMf" firstAttribute="top" secondItem="kbS-sk-eBI" secondAttribute="bottom" constant="52" id="05h-g0-f6M"/>
                             <constraint firstItem="xDS-LG-nu0" firstAttribute="width" secondItem="Syj-Rz-QQk" secondAttribute="width" id="1tA-i1-AgE"/>
                             <constraint firstItem="THn-v2-dhj" firstAttribute="trailing" secondItem="izX-sl-qZu" secondAttribute="trailing" id="94D-Wh-nro"/>
                             <constraint firstItem="THn-v2-dhj" firstAttribute="leading" secondItem="izX-sl-qZu" secondAttribute="leading" id="I54-wh-Sg4"/>
@@ -311,12 +313,12 @@
                             <constraint firstAttribute="trailingMargin" secondItem="izX-sl-qZu" secondAttribute="trailing" id="QX7-4k-DTw"/>
                             <constraint firstItem="QLX-cM-QTl" firstAttribute="leading" secondItem="THn-v2-dhj" secondAttribute="leading" id="RGj-cu-W8l"/>
                             <constraint firstItem="xDS-LG-nu0" firstAttribute="trailing" secondItem="Syj-Rz-QQk" secondAttribute="trailing" id="SEy-6S-Adc"/>
-                            <constraint firstItem="sIH-PQ-eXT" firstAttribute="top" secondItem="QLX-cM-QTl" secondAttribute="bottom" constant="8" id="Te4-Pf-3LS"/>
+                            <constraint firstItem="sIH-PQ-eXT" firstAttribute="top" secondItem="QLX-cM-QTl" secondAttribute="bottom" constant="20" id="Te4-Pf-3LS"/>
                             <constraint firstItem="RvS-MF-Byx" firstAttribute="top" secondItem="hzX-Gp-OMf" secondAttribute="top" id="U6U-rq-vEA"/>
                             <constraint firstItem="izX-sl-qZu" firstAttribute="top" secondItem="xDS-LG-nu0" secondAttribute="bottom" constant="44.5" id="apg-5m-Nto"/>
                             <constraint firstItem="QLX-cM-QTl" firstAttribute="top" secondItem="THn-v2-dhj" secondAttribute="bottom" constant="8" id="arr-sa-EWl"/>
                             <constraint firstItem="Syj-Rz-QQk" firstAttribute="top" secondItem="RvS-MF-Byx" secondAttribute="bottom" constant="2.5" id="cEq-aQ-CyR"/>
-                            <constraint firstItem="izX-sl-qZu" firstAttribute="centerY" secondItem="wgZ-wt-wyD" secondAttribute="centerY" constant="22" id="dTQ-Jh-lBe"/>
+                            <constraint firstItem="izX-sl-qZu" firstAttribute="centerY" secondItem="wgZ-wt-wyD" secondAttribute="centerY" constant="5.5" id="dTQ-Jh-lBe"/>
                             <constraint firstItem="QLX-cM-QTl" firstAttribute="trailing" secondItem="THn-v2-dhj" secondAttribute="trailing" id="eoC-sn-0Fh"/>
                             <constraint firstItem="Syj-Rz-QQk" firstAttribute="leading" secondItem="RvS-MF-Byx" secondAttribute="leading" id="jaB-bo-mpc"/>
                             <constraint firstItem="RvS-MF-Byx" firstAttribute="leading" secondItem="hzX-Gp-OMf" secondAttribute="trailing" constant="38" id="oHt-s5-zXl"/>
@@ -333,9 +335,11 @@
                         <outlet property="appName" destination="RvS-MF-Byx" id="EQW-3R-u4R"/>
                         <outlet property="appPrice" destination="xDS-LG-nu0" id="ppz-lQ-nTI"/>
                         <outlet property="appRecommendedView" destination="QLX-cM-QTl" id="C18-1j-iDo"/>
+                        <segue destination="gxp-0x-Jk7" kind="unwind" identifier="returnCategoriesSegue" unwindAction="returnFromDetailSegueActions:" id="vvU-hL-Uan"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="05H-G7-hfL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="gxp-0x-Jk7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2212" y="1895"/>
         </scene>
@@ -359,6 +363,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="QkA-ja-UTJ"/>
+        <segue reference="3Mg-DJ-szO"/>
     </inferredMetricsTieBreakers>
 </document>

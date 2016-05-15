@@ -14,16 +14,28 @@ class AppsViewController: UIViewController, UICollectionViewDelegate, UICollecti
   //MARK: Outlets
   @IBOutlet weak var collectionView: UICollectionView!
   
+  //MARK: Actions
+
+  @IBAction func returnFromDetailSegueActions(sender: UIStoryboardSegue){
+    
+  }
+
+  
   //MARK: Properties
-  var category = ""
+  var category = "Games"
   let reuseIdentifier = "Cell"
   let realm = try! Realm()
   var items  = 0
+  
 
   override func viewDidLoad() {
     super.viewDidLoad()
     buildAppsViews()
-      
+    
+    //Add gesture for back navigation
+    let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.backToMenu))
+    swipeGesture.direction = .Right
+    self.view.addGestureRecognizer(swipeGesture)
   }
   
   private func buildAppsViews() {
@@ -57,13 +69,35 @@ class AppsViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     return cell
   }
-
   
   //MARK: Navitation
+  
+  func backToMenu () {
+    self.performSegueWithIdentifier("returnMenuSegue", sender: self)
+  }
+  
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    let cell  = sender as! AppsCollectionViewCell
-    let vc    = segue.destinationViewController as! DetailViewController
-    vc.apps   = cell.itemLabel.text!
+    if segue.identifier == "detailSegue" {
+      let cell  = sender as! AppsCollectionViewCell
+      let vc    = segue.destinationViewController as! DetailViewController
+      vc.apps   = cell.itemLabel.text!
+    }
+  }
+  
+  override func segueForUnwindingToViewController(toViewController: UIViewController, fromViewController: UIViewController, identifier: String?) -> UIStoryboardSegue? {
+    if let id = identifier{
+      if id == "returnCategoriesSegue" {
+        let unwindSegue = ReturnCategoriesSegue(identifier: id,
+                                                  source: fromViewController,
+                                                  destination: toViewController,
+                                                  performHandler: { () -> Void in
+                                                    
+        })
+        
+        return unwindSegue
+      }        
+    }
+    return super.segueForUnwindingToViewController(toViewController, fromViewController: fromViewController, identifier: identifier)
   }
   
 }
