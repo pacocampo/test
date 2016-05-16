@@ -8,7 +8,7 @@
 
 import UIKit
 
-class iPadMenuViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class iPadMenuViewController: UIViewController {
   @IBOutlet weak var collectionView: UICollectionView!
     let categories : [String] = ["Games", "Photo & Video", "Social Networking", "Chat", "Entertainment", "Music", "Education", "Travel", "Navigation"]
 
@@ -17,10 +17,15 @@ class iPadMenuViewController: UIViewController, UICollectionViewDataSource, UICo
     
   }
   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+  //Life Cycle
+  override func viewDidLoad() {
+    super.viewDidLoad()
+  }
   
+}
+
+extension iPadMenuViewController :  UICollectionViewDataSource, UICollectionViewDelegate {
+
   //MARK: Collection View
   func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return categories.count

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class iPhoneMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class iPhoneMenuViewController: UIViewController {
   //Outlets
   @IBOutlet weak var tableview: UITableView!
   
@@ -24,6 +24,10 @@ class iPhoneMenuViewController: UIViewController, UITableViewDelegate, UITableVi
   override func viewDidLoad() {
     super.viewDidLoad()
   }
+  
+}
+
+extension iPhoneMenuViewController : UITableViewDelegate, UITableViewDataSource {
 
   //MARK: Table stuff
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
